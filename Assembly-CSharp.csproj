@@ -63,9 +63,6 @@
      <Compile Include="Assets\Scripts\Interfaces\IAiAgent.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IAiPackage.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IMovementController.cs" />
-     <Compile Include="Assets\Scripts\ItemClass.cs" />
-     <Compile Include="Assets\Scripts\ItemEquip.cs" />
-     <Compile Include="Assets\Scripts\ItemLoot.cs" />
      <Compile Include="Assets\Scripts\LootBeehive.cs" />
      <Compile Include="Assets\Scripts\LootBerry.cs" />
      <Compile Include="Assets\Scripts\LootBoulder.cs" />
@@ -75,7 +72,6 @@
      <Compile Include="Assets\Scripts\PicnicItems.cs" />
      <Compile Include="Assets\Scripts\PlayerAttributes.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\PlayerInventory.cs" />
      <Compile Include="Assets\Scripts\PlayerInventoryGUI.cs" />
      <Compile Include="Assets\Scripts\SaveGame.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
