@@ -54,7 +54,7 @@ public class LootPicnic : MonoBehaviour {
 	GUILayout.BeginArea (new Rect(0, 50, 200, 100));
 	GUILayout.BeginHorizontal ();
 	  //The magic behind transferring an item from source to player inventory
-		if(GUILayout.Button (lootDictionary[0], GUILayout.Height (50)) || Input.GetKeyDown("q")){
+	  if(GUILayout.Button (lootDictionary[0], GUILayout.Height (50)) || Input.GetKeyDown("q")){
 	    if(lootDictionary[0] != string.Empty){
 		  for(int i=0; i<3 && (lootDictionary[0] != string.Empty); i++){
 		  	if(PlayerInventoryGUI.inventoryNameDictionary[i] == string.Empty){
@@ -63,7 +63,7 @@ public class LootPicnic : MonoBehaviour {
 			  
 			  //After the targeted item is looted destroy the targeted item
 			  Destroy(rayHit.collider.gameObject);
-			 }
+			}
 		  }
 		  inventoryWindowShow = false;
 
