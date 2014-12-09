@@ -25,7 +25,9 @@ public class LootPicnic : MonoBehaviour {
 	
   // Update is called once per frame
   void Update () {
-    mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+	Transform cameraTransform = Camera.main.transform;
+	mouseRay = new Ray (cameraTransform.position, cameraTransform.forward);
+    //mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 	  if(Input.GetMouseButton (1)) {		// Right click
 	    if(Physics.Raycast (mouseRay, out rayHit)){
 		  if(rayHit.collider.transform.tag == "Picnic"){
