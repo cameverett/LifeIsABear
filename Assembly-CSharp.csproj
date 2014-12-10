@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AiPackages\FoxAi.cs" />
      <Compile Include="Assets\Scripts\AiRandom.cs" />
+     <Compile Include="Assets\Scripts\AngryBeehive.cs" />
      <Compile Include="Assets\Scripts\AnimalAI.cs" />
      <Compile Include="Assets\Scripts\BaseAI.cs" />
      <Compile Include="Assets\Scripts\BeehiveItems.cs" />

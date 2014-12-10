@@ -153,6 +153,7 @@ public class PlayerAttributes : MonoBehaviour {
 		feedTime -= Time.deltaTime;
 		if(feedTime < 0 && !(hungerLevel > 2) ){
 			hungerLevel++;
+			Debug.Log("You've gotten hungrier!");
 			feedTime = time;
 		}
 	}
@@ -230,6 +231,4 @@ public class PlayerAttributes : MonoBehaviour {
 
 	}
 
-
-	
 }

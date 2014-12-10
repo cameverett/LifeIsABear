@@ -6,6 +6,7 @@ public class Throw : MonoBehaviour {
   public Rigidbody ThrowBoulder;
   public Rigidbody ThrowBeehive;
   public Transform throwPos;
+  public Transform turretPos;
   public float throwForce = 4000f;
 
   // Update is called once per frame
@@ -13,8 +14,8 @@ public class Throw : MonoBehaviour {
 	if(Input.GetKeyDown ("1") && PlayerInventoryGUI.inventoryNameDictionary[0] != string.Empty){
       if(PlayerInventoryGUI.inventoryNameDictionary[0] == "Beehive"){
 	    PlayerInventoryGUI.inventoryNameDictionary[0] = string.Empty;
-		Rigidbody thrown = Instantiate (ThrowBeehive, throwPos.position, throwPos.rotation) as Rigidbody;
-		thrown.AddForce (throwPos.forward * throwForce);
+		Rigidbody thrown = Instantiate (ThrowBeehive, turretPos.position, turretPos.rotation) as Rigidbody;
+		thrown.AddForce (turretPos.forward * throwForce);
 		Destroy (thrown.gameObject, 5.0f);
 	  }
 	  else if(PlayerInventoryGUI.inventoryNameDictionary[0] == "Boulder"){
@@ -29,8 +30,8 @@ public class Throw : MonoBehaviour {
 	else if(Input.GetKeyDown ("2") && PlayerInventoryGUI.inventoryNameDictionary[1] != string.Empty){
 	  if(PlayerInventoryGUI.inventoryNameDictionary[1] == "Beehive"){
 	    PlayerInventoryGUI.inventoryNameDictionary[1] = string.Empty;
-		Rigidbody thrown = Instantiate (ThrowBeehive, throwPos.position, throwPos.rotation) as Rigidbody;
-		thrown.AddForce (throwPos.forward * throwForce);
+		Rigidbody thrown = Instantiate (ThrowBeehive, turretPos.position, turretPos.rotation) as Rigidbody;
+		thrown.AddForce (turretPos.forward * throwForce);
 		Destroy (thrown.gameObject, 5.0f);
 	  }
 	  else if(PlayerInventoryGUI.inventoryNameDictionary[1] == "Boulder"){
@@ -44,8 +45,8 @@ public class Throw : MonoBehaviour {
 	else if(Input.GetKeyDown ("3") && PlayerInventoryGUI.inventoryNameDictionary[2] != string.Empty){
 	  if(PlayerInventoryGUI.inventoryNameDictionary[2] == "Beehive"){
 	    PlayerInventoryGUI.inventoryNameDictionary[2] = string.Empty;
-		Rigidbody thrown = Instantiate (ThrowBeehive, throwPos.position, throwPos.rotation) as Rigidbody;
-		thrown.AddForce (throwPos.forward * throwForce);
+		Rigidbody thrown = Instantiate (ThrowBeehive, turretPos.position, turretPos.rotation) as Rigidbody;
+		thrown.AddForce (turretPos.forward * throwForce);
 		Destroy (thrown.gameObject, 5.0f);
 	  }
 	  else if(PlayerInventoryGUI.inventoryNameDictionary[2] == "Boulder"){
