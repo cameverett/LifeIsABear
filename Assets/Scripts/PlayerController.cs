@@ -102,7 +102,8 @@ public class PlayerController : MonoBehaviour
   
   void getPlayerAction()
   {
-    if(Input.GetKey(KeyCode.LeftShift) && (m_playerAttributes.curEndurance > 0)) // Sprint
+
+    if(Input.GetKeyDown(KeyCode.LeftShift) && (m_playerAttributes.curEndurance > 0)) // Sprint
     {
       m_isSprinting = true;
       StartCoroutine(cameraWobble());

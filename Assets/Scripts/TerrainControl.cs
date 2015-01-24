@@ -50,7 +50,7 @@ public class TerrainControl : MonoBehaviour {
 	private GameObject[] terrainObjects;
 	private int m_terrainSize;
 	private float m_farClip;
-	private float m_loadRange; // make at least as big as farClip
+	// private float m_loadRange; // make at least as big as farClip
 	private float m_unloadRange; // make at least as big as farclip
 	private int m_xPlayerChunk, m_zPlayerChunk;
 	
@@ -63,7 +63,7 @@ public class TerrainControl : MonoBehaviour {
 	void Awake()
 	{
 		m_farClip = playerCamera.farClipPlane;
-		m_loadRange = m_farClip + 1000;
+		// m_loadRange = m_farClip + 1000;
 		m_unloadRange = m_farClip + 2500;
 		m_terrainSize = 2000; // distance along a side, coords should be in center
 		m_xPlayerChunk = 0;

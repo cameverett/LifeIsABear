@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour {
     q = new Quaternion();
     q.SetLookRotation ( Vector3.forward );
     maxOffset = 200.0f;
-    animals = new GameObject[100];
+    animals = new GameObject[60];
     for( int i = 0; i < 100; i++ )
     {
       randx = Random.Range ( player.transform.position.x - maxOffset
