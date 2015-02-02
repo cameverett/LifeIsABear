@@ -4,7 +4,8 @@ using System.Collections;
 
 // Attach to Player in Unity
 [Serializable]
-public class PlayerAttributes : MonoBehaviour {
+public class PlayerAttributes : MonoBehaviour
+{
 
   public float health;       // Player max health.
   public float curHealth;    // Current health of player.
@@ -86,7 +87,7 @@ public class PlayerAttributes : MonoBehaviour {
 
     GUI.Box (new Rect (Screen.width - Screen.width * 0.25f, 5,
                        Screen.width * 0.15f, Screen.height * 0.1f),
-	        		   "Hungrier in " + sec + " !!!");
+	        		         "Hungrier in " + sec + " !!!");
 
   }
 
@@ -106,12 +107,12 @@ public class PlayerAttributes : MonoBehaviour {
       curExp = 1.0f;
       if(curLevel < maxLevel)
       {
-	curLevel++;
-	strength += curLevel;
-	health += 5.0f;
-	curHealth = health;
-	endurance += 2.0f;
-	curEndurance = endurance;
+	      curLevel++;
+	      strength += curLevel;
+	      health += 5.0f;
+	      curHealth = health;
+	      endurance += 2.0f;
+	      curEndurance = endurance;
       }
     }
 
@@ -135,8 +136,8 @@ public class PlayerAttributes : MonoBehaviour {
       if (curEndurance < endurance)
       {
         curEndurance += regeneration * Time.deltaTime;
-	if (curEndurance > endurance)
-	{
+	      if (curEndurance > endurance)
+      	{
           curEndurance = endurance;
         }
       }
@@ -196,26 +197,25 @@ public class PlayerAttributes : MonoBehaviour {
   {
     if(curHungerLevel != hungerLevel)
     {
-
       if (hungerLevel == 2)
       {
-	hungerMod = 2.0f;
-	curHungerLevel = hungerLevel;
+	      hungerMod = 2.0f;
+      	curHungerLevel = hungerLevel;
 
-	health -= hungerMod;
-	endurance -= hungerMod;				
-	strength -= hungerMod;
-	attRange -= hungerMod;
+	      health -= hungerMod;
+	      endurance -= hungerMod;				
+	      strength -= hungerMod;
+	      attRange -= hungerMod;
       }
       else if(hungerLevel == 3)
       {
-	hungerMod = 3.0f;
-	curHungerLevel = hungerLevel;
+	      hungerMod = 3.0f;
+	      curHungerLevel = hungerLevel;
 
-	health -= hungerMod;
-	endurance -= hungerMod;		
-	strength -= hungerMod;
-	attRange -= hungerMod;
+	      health -= hungerMod;
+	      endurance -= hungerMod;		
+	      strength -= hungerMod;
+	      attRange -= hungerMod;
       }
 
     }
@@ -240,7 +240,7 @@ public class PlayerAttributes : MonoBehaviour {
          || PlayerInventoryGUI.inventoryNameDictionary[0] == "Berry")
       {
 
-	if(PlayerInventoryGUI.inventoryNameDictionary[0] == "Berry")
+      	if(PlayerInventoryGUI.inventoryNameDictionary[0] == "Berry")
         {
           curHealth += hungerMod;
         }
@@ -256,7 +256,7 @@ public class PlayerAttributes : MonoBehaviour {
         if(hungerLevel > 1)
         {
           hungerLevel = curHungerLevel - 1;
-	}
+      	}
       
         feedTime = time;
         sec = 60;
@@ -273,23 +273,23 @@ public class PlayerAttributes : MonoBehaviour {
       {
 
         if(PlayerInventoryGUI.inventoryNameDictionary[1] == "Berry")
-	{
+	      {
           curHealth += hungerMod;
-	}
+	      }
 
         else
-	{
+      	{
           health += hungerMod;
           curHealth = health;
         }
 
         PlayerInventoryGUI.inventoryNameDictionary[1] = string.Empty;
-	curExp++;
+      	curExp++;
 
         if(hungerLevel > 1)
-	{
+	      {
           hungerLevel = curHungerLevel - 1;
-	}
+	      }
 
         feedTime = time;
         sec = 60;
@@ -307,12 +307,12 @@ public class PlayerAttributes : MonoBehaviour {
       {
 
         if(PlayerInventoryGUI.inventoryNameDictionary[2] == "Berry")
-	{
+	      {
           curHealth += hungerMod;
-	}
+      	}
 	
         else
-	{
+      	{
           health += hungerMod;
           curHealth = health;
         }
@@ -320,9 +320,9 @@ public class PlayerAttributes : MonoBehaviour {
         PlayerInventoryGUI.inventoryNameDictionary[2] = string.Empty;
         curExp++;
         if(hungerLevel > 1)
-	{
+	      {
           hungerLevel = curHungerLevel - 1;
-	}
+      	}
 
         feedTime = time;
         sec = 60;

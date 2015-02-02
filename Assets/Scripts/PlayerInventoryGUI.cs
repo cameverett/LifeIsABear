@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 
 // Attach to Player in Unity
-public class PlayerInventoryGUI : MonoBehaviour {
+public class PlayerInventoryGUI : MonoBehaviour
+{
   static public bool isOpen;  // Player inventory is open on screen
   public bool isCarrying;     // TODO: Prep for item equips 
   private Rect inventoryWindowRect;
 
   // The player's inventory starts empty and can hold up to three items. 
-  static public Dictionary<int, string> 
+  static public Dictionary<int, string>
     inventoryNameDictionary = new Dictionary<int, string> ()
     {	
       {0, string.Empty},
@@ -18,7 +19,8 @@ public class PlayerInventoryGUI : MonoBehaviour {
     };
 
   // Use this for initialization
-  void Awake () {
+  void Awake ()
+  {
     isOpen = false;
     inventoryWindowRect = new Rect(Screen.width * 0.6f, 
                                    Screen.height * 0.45f, 110, 200);
