@@ -62,7 +62,6 @@ public class PlayerAttributes : MonoBehaviour
     HungerLevel();
     HungerModifier();
     Eat();
-
   }
 
 
@@ -97,7 +96,7 @@ public class PlayerAttributes : MonoBehaviour
   // LevelUp()
   //
   // Increment level after curExp reaches maxExp in value
-  // resets curExp to 1
+  // Resets curExp to 1.
   // Increase base stats on level up.
   //-----------------------------------------------------
   void LevelUp()
@@ -107,12 +106,12 @@ public class PlayerAttributes : MonoBehaviour
       curExp = 1.0f;
       if(curLevel < maxLevel)
       {
-	      curLevel++;
-	      strength += curLevel;
-	      health += 5.0f;
-	      curHealth = health;
-	      endurance += 2.0f;
-	      curEndurance = endurance;
+	curLevel++;
+	strength += curLevel;
+	health += 5.0f;
+	curHealth = health;
+	endurance += 2.0f;
+	curEndurance = endurance;
       }
     }
 
@@ -123,7 +122,7 @@ public class PlayerAttributes : MonoBehaviour
   //-----------------------------------------------------
   // EnergyRegen()
   //
-  // curEndurance values are always greater than or equal
+  // curEndurance is always greater than or equal
   // to 0 or less than or equal to endurance.
   //-----------------------------------------------------
   void EnergyRegen()
@@ -133,14 +132,14 @@ public class PlayerAttributes : MonoBehaviour
       curEndurance = endurance;
     }
 
-      if (curEndurance < endurance)
+    if (curEndurance < endurance)
+    {
+      curEndurance += regeneration * Time.deltaTime;
+      if (curEndurance > endurance)
       {
-        curEndurance += regeneration * Time.deltaTime;
-	      if (curEndurance > endurance)
-      	{
-          curEndurance = endurance;
-        }
+        curEndurance = endurance;
       }
+    }
 
     return;
   }
@@ -170,7 +169,8 @@ public class PlayerAttributes : MonoBehaviour
   //-----------------------------------------------------
   // HungerLevel()
   //
-  // Adjusts hungerLevel based on time passed
+  // Increases hungerLevel based on time passed.
+  // Resets feedTime when hungerLevel changes.
   //-----------------------------------------------------
   void HungerLevel()
   {
@@ -178,7 +178,6 @@ public class PlayerAttributes : MonoBehaviour
     if(feedTime < 0 && hungerLevel <= 2)
     {
       hungerLevel++;
-      Debug.Log("You've gotten hungrier!");
       feedTime = time;
     }
 
@@ -191,7 +190,7 @@ public class PlayerAttributes : MonoBehaviour
   //-----------------------------------------------------
   // HungerModifier()
   //
-  // Adjusts stats in void Update() based on hungerLevel.
+  // Adjusts stats based on hungerLevel.
   //-----------------------------------------------------
   void HungerModifier()
   {
@@ -233,108 +232,95 @@ public class PlayerAttributes : MonoBehaviour
   void Eat()
   {
     if(Input.GetKeyDown ("1") && 
-       PlayerInventoryGUI.inventoryNameDictionary[0] != string.Empty)
+       ( PlayerInventoryGUI.inventoryNameDictionary[0] == "Berry"
+         || PlayerInventoryGUI.inventoryNameDictionary[0] == "Picnic") )
     {
-
-      if(PlayerInventoryGUI.inventoryNameDictionary[0] == "Picnic"
-         || PlayerInventoryGUI.inventoryNameDictionary[0] == "Berry")
+     	if(PlayerInventoryGUI.inventoryNameDictionary[0] == "Berry")
       {
-
-      	if(PlayerInventoryGUI.inventoryNameDictionary[0] == "Berry")
-        {
-          curHealth += hungerMod;
-        }
-
-        else
-        {
-          health += hungerMod;
-          curHealth = health;
-        }
-      
-        PlayerInventoryGUI.inventoryNameDictionary[0] = string.Empty;
-        curExp++;
-        if(hungerLevel > 1)
-        {
-          hungerLevel = curHungerLevel - 1;
-      	}
-      
-        feedTime = time;
-        sec = 60;
+        curHealth += hungerMod;
       }
 
+      else if(PlayerInventoryGUI.inventoryNameDictionary[0] == "Picnic")
+      {
+        health += hungerMod;
+        curHealth = health;
+      }
+
+      PlayerInventoryGUI.inventoryNameDictionary[0] = string.Empty;
+      curExp++;
+      if(hungerLevel > 1)
+      {
+        hungerLevel = curHungerLevel - 1;
+    	}
+      
+      feedTime = time;
+      sec = (int)time;
     }
 
     else if(Input.GetKeyDown ("2") &&
-            PlayerInventoryGUI.inventoryNameDictionary[1] != string.Empty)
+            ( PlayerInventoryGUI.inventoryNameDictionary[1] == "Berry"
+              || PlayerInventoryGUI.inventoryNameDictionary[1] == "Picnic") ) 
     {
+      if(PlayerInventoryGUI.inventoryNameDictionary[1] == "Berry")
+	    {
+        curHealth += hungerMod;
+	    }
 
-      if(PlayerInventoryGUI.inventoryNameDictionary[1] == "Picnic" 
-         || PlayerInventoryGUI.inventoryNameDictionary[1] == "Berry")
+      else if(PlayerInventoryGUI.inventoryNameDictionary[1] == "Picnic")
       {
-
-        if(PlayerInventoryGUI.inventoryNameDictionary[1] == "Berry")
-	      {
-          curHealth += hungerMod;
-	      }
-
-        else
-      	{
-          health += hungerMod;
-          curHealth = health;
-        }
-
-        PlayerInventoryGUI.inventoryNameDictionary[1] = string.Empty;
-      	curExp++;
-
-        if(hungerLevel > 1)
-	      {
-          hungerLevel = curHungerLevel - 1;
-	      }
-
-        feedTime = time;
-        sec = 60;
-
+        health += hungerMod;
+        curHealth = health;
       }
+
+      PlayerInventoryGUI.inventoryNameDictionary[1] = string.Empty;
+    	curExp++;
+
+      if(hungerLevel > 1)
+	    {
+        hungerLevel = curHungerLevel - 1;
+	    }
+
+      feedTime = time;
+      sec = (int)time;
 
     }
 
     else if(Input.GetKeyDown ("3") && 
-            PlayerInventoryGUI.inventoryNameDictionary[2] != string.Empty)
+            ( PlayerInventoryGUI.inventoryNameDictionary[2] == "Berry"
+              || PlayerInventoryGUI.inventoryNameDictionary[2] == "Picnic") )
     {
-
-      if(PlayerInventoryGUI.inventoryNameDictionary[2] == "Picnic" 
-         || PlayerInventoryGUI.inventoryNameDictionary[2] == "Berry")
+      if(PlayerInventoryGUI.inventoryNameDictionary[2] == "Berry")
       {
-
-        if(PlayerInventoryGUI.inventoryNameDictionary[2] == "Berry")
-	      {
-          curHealth += hungerMod;
-      	}
-	
-        else
-      	{
-          health += hungerMod;
-          curHealth = health;
-        }
-
-        PlayerInventoryGUI.inventoryNameDictionary[2] = string.Empty;
-        curExp++;
-        if(hungerLevel > 1)
-	      {
-          hungerLevel = curHungerLevel - 1;
-      	}
-
-        feedTime = time;
-        sec = 60;
-
+        curHealth += hungerMod;
       }
-    }
-
-  }
 	
+      else if(PlayerInventoryGUI.inventoryNameDictionary[2] == "Picnic")
+      {
+        health += hungerMod;
+        curHealth = health;
+      }
+
+      PlayerInventoryGUI.inventoryNameDictionary[2] = string.Empty;
+      curExp++;
+
+      if(hungerLevel > 1)
+      {
+        hungerLevel = curHungerLevel - 1;
+      }
+
+      feedTime = time;
+      sec = (int)time;
+
+    }
+  }
+
   void Stopwatch()
   { 
-    sec--; if(sec < 0){ sec = 60;}
+    sec--;
+    if(sec < 0)
+    {
+      sec = (int)time;
+    }
   }
 	
 }

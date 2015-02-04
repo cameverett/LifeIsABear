@@ -37,9 +37,11 @@ public class PlayerInventoryGUI : MonoBehaviour
   {
     // When inventory isOpen call showInvSlots()
     if (isOpen)
+    {
       inventoryWindowRect = GUI.Window (0, inventoryWindowRect,
                                         showInvSlots, "Inventory");	
-    
+    }
+
     // Targeting reticule for selecting items/targets 
     GUI.Box (new Rect(Screen.width/2,Screen.height/2, 5, 5), "");
   }
@@ -78,10 +80,14 @@ public class PlayerInventoryGUI : MonoBehaviour
   void InvToggle()
   {
     if(Input.GetKeyDown("i") && isOpen == false)
+    {
       isOpen = true;
+    }
 
     else if(Input.GetKeyDown("i") && isOpen != false)
+    {
       isOpen = false;
+    }
   }
 
 }

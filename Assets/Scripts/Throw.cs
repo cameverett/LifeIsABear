@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+// Attach to player in Unity
 public class Throw : MonoBehaviour
 {
 
@@ -10,7 +11,7 @@ public class Throw : MonoBehaviour
   public Transform turretPos;
   public float throwForce = 4000f;
 
-  void Update ()
+  void Update()
   {
 
     if(Input.GetKeyDown ("1") 
